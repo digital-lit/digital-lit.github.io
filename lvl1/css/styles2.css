@@ -1,0 +1,48 @@
+body{
+  background-color: #e0ffaf;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 750px;
+}
+h1{
+    padding: 50px;
+}
+#circle, #circle1, #circle2{
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 5s ease;
+}
+
+#step2, #step3, #step4{
+  display: none;
+}
+
+#hand{
+  display: inline;
+  padding-top: 50px;
+  height: 50px;
+}
+
+#buffer{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transition: all 3s ease;
+}
+
+#step1{
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+.clickable:hover {
+  cursor: pointer;
+}
