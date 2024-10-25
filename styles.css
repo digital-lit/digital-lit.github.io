@@ -35,6 +35,8 @@ h1{
 
 .button:hover {
   background-color: #3e8e41;
+  transition: all 3s ease;
+  vertical-align: middle;
   width: 150px;
   height: 150px;
 }
