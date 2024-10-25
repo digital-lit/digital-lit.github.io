@@ -1,0 +1,46 @@
+    /* Page styling */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Instruction text */
+    #instructions {
+      position: absolute;
+      top: 20px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    /* Drop zone styling */
+    #dropZone {
+      width: 150px;
+      height: 150px;
+      border: 3px dotted #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Draggable circle styling */
+    #draggableCircle {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      border-radius: 50%;
+      position: absolute;
+      top: 70%;
+      left: 20%;
+      cursor: grab;
+    }
