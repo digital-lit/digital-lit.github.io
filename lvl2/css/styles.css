@@ -8,7 +8,11 @@
       height: 100vh;
       font-family: Arial, sans-serif;
     }
-
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
     /* Instruction text */
     #instructions {
       position: absolute;
