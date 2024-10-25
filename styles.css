@@ -35,6 +35,22 @@ h1{
 
 .button:hover {
   background-color: #3e8e41;
+  
 }
 
+.slide-text {
+  position: absolute;
+  text-align: left;
+  font-size: 25px;
+  left: 100%; /* Starts outside the button on the right */
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  line-height: 40px;
+  color: black;
+}
 
+.button:hover .slide-text {
+  left: 130px; /* Adjust this value to control where the text ends up */
+  opacity: 1;
+}
