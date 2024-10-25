@@ -18,9 +18,9 @@
     /* Instruction text */
     #instructions {
       position: absolute;
-      /*text-align: center;
+      /*text-align: center;*/
       top: 20px;
-      font-size: 1.5rem;
+      /*font-size: 1.5rem;
       color: #333;*/
     }
 
