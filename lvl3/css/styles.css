@@ -1,0 +1,48 @@
+body{
+  background-color: #e0ffaf;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 750px;
+}
+h1{
+    padding: 50px;
+}
+#circle, #circle1, #circle2{
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 5s ease;
+}
+
+#flex_container{
+  /*display: flex;*/
+  width: 100%;
+}
+#fake1, #fake2{
+  height: 27px;
+  width: 200px;
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 40px;
+  margin-bottom: 0;
+  transition: all 1s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#real_textbox{
+  height: 25px;
+  width: 200px;
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 40px;
+  transition: all 1s ease;
+  display: inline-block;
+}
+
+#step2{
+  display: none;
+}
