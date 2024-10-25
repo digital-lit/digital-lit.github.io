@@ -3,10 +3,12 @@
       padding: 0;
       background-color: #e0ffaf;
       display: flex;
-      justify-content: center;
       align-items: center;
       height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
+    }
+    h1{
+      padding: 50px;
     }
 .prevent-select {
   -webkit-user-select: none; /* Safari */
