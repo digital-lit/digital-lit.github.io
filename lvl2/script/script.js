@@ -4,10 +4,10 @@
     const circle1 = document.getElementById('circle1');
     const circle2 = document.getElementById('circle2');
 
-    let isDragging = true;
+    let isDragging = false;
     let offsetX, offsetY;
-    let firstGoal = true;
-    let secondGoal = true;
+    let firstGoal = false;
+    let secondGoal = false;
     let thirdGoal = false;
 
     // Mouse down event to start dragging
