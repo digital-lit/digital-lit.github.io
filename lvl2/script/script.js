@@ -103,17 +103,17 @@
           setTimeout(() => {
             draggableCircle.style.transition = 'all 2s ease';
             draggableCircle.style.top = '0%';
-            draggableCircle.style.left = '20%';
+            draggableCircle.style.left = '30%';
             draggableCircle.style.width = '0px';
             draggableCircle.style.height = '0px';
             
             circle1.style.top = '0%';
-            circle1.style.left = '30%';
+            circle1.style.left = '40%';
             circle1.style.width = '0px';
             circle1.style.height = '0px';
             
             circle2.style.top = '0%';
-            circle2.style.left = '10%';
+            circle2.style.left = '20%';
             circle2.style.width = '0px';
             circle2.style.height = '0px';
             //setTimeout(() => {
