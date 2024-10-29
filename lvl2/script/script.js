@@ -76,6 +76,9 @@
             return;
         } else if (!thirdGoal){
         	instructions.textContent = 'Thank you!';
+          dropZone.style.transition = '3s';
+          dropZone.style.opacity = '0';
+          thirdGoal = true;
         }
       
        
