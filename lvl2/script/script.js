@@ -56,7 +56,7 @@
   				setTimeout(() => {
     					draggableCircle.style.transition = '0s';
   					}, 2100); // Slightly longer than the 2s transition to ensure it’s fully completed
-					}, 3000);
+					}, 2000);
 					firstGoal = true;
           return;
         } else if (!secondGoal){
@@ -71,7 +71,7 @@
             setTimeout(() => {
                 draggableCircle.style.transition = '0s';
               }, 2100); // Slightly longer than the 2s transition to ensure it’s fully completed
-            }, 3000);
+            }, 2000);
             secondGoal = true;
             return;
         } else if (!thirdGoal){
