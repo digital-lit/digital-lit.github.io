@@ -78,6 +78,19 @@
         	instructions.textContent = 'Thank you!';
           dropZone.style.transition = '3s';
           dropZone.style.opacity = '0';
+          
+          setTimeout(() => {
+            draggableCircle.style.transition = 'all 2s ease';
+            draggableCircle.style.top = '0%';
+            draggableCircle.style.left = '20%';
+            draggableCircle.style.width = '0px';
+            draggableCircle.style.height = '0px';
+            //setTimeout(() => {
+              //window.location.href
+          //window.open(window.location.href + '2.html', '_blank');
+         	//}, 2000);
+          }, 2000);
+          
           thirdGoal = true;
         }
       
