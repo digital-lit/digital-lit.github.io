@@ -1,11 +1,13 @@
     const draggableCircle = document.getElementById('draggableCircle');
     const dropZone = document.getElementById('dropZone');
     const instructions = document.getElementById('instructions');
+    const circle1 = document.getElementById('circle1');
+    const circle2 = document.getElementById('circle2');
 
-    let isDragging = false;
+    let isDragging = true;
     let offsetX, offsetY;
-    let firstGoal = false;
-    let secondGoal = false;
+    let firstGoal = true;
+    let secondGoal = true;
     let thirdGoal = false;
 
     // Mouse down event to start dragging
@@ -79,17 +81,46 @@
           dropZone.style.transition = '3s';
           dropZone.style.opacity = '0';
           
+          var greenRect = draggableCircle.getBoundingClientRect();
+          var greenLeft = greenRect.left.toFixed();
+          var greenTop = greenRect.top.toFixed();
+          
+          circle1.style.left = greenLeft + "px";
+          circle1.style.top = greenTop + "px";
+          circle2.style.left = greenLeft + "px";
+          circle2.style.top = greenTop + "px";
+          
+          
+          setTimeout(() => {
+          	circle1.style.display = 'inline';
+            circle2.style.display = 'inline';
+          	setTimeout(() => {
+              circle1.style.left = greenLeft/2 + "px";
+              circle2.style.left = greenLeft*1.5 + "px";
+          	}, 1000);
+          }, 2000);
+          
           setTimeout(() => {
             draggableCircle.style.transition = 'all 2s ease';
             draggableCircle.style.top = '0%';
             draggableCircle.style.left = '20%';
             draggableCircle.style.width = '0px';
             draggableCircle.style.height = '0px';
+            
+            circle1.style.top = '0%';
+            circle1.style.left = '10%';
+            circle1.style.width = '0px';
+            circle1.style.height = '0px';
+            
+            circle2.style.top = '0%';
+            circle2.style.left = '30%';
+            circle2.style.width = '0px';
+            circle2.style.height = '0px';
             //setTimeout(() => {
               //window.location.href
           //window.open(window.location.href + '2.html', '_blank');
          	//}, 2000);
-          }, 2000);
+          }, 8000);
           
           thirdGoal = true;
         }
