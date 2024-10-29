@@ -108,12 +108,12 @@
             draggableCircle.style.height = '0px';
             
             circle1.style.top = '0%';
-            circle1.style.left = '10%';
+            circle1.style.left = '30%';
             circle1.style.width = '0px';
             circle1.style.height = '0px';
             
             circle2.style.top = '0%';
-            circle2.style.left = '30%';
+            circle2.style.left = '10%';
             circle2.style.width = '0px';
             circle2.style.height = '0px';
             //setTimeout(() => {
