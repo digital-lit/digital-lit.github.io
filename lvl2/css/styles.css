@@ -87,6 +87,28 @@
     display: block;
 }
 
+#redCircle{
+    width: 100px;
+    height: 100px;
+    background-color: DarkRed;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    display: block;
+}
+
+#greenCircle{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    display: block;
+}
+
 #circleLabel{
     text-align: center;
     margin: 50px;
