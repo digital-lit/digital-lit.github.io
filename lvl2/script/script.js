@@ -116,10 +116,12 @@
             circle2.style.left = '20%';
             circle2.style.width = '0px';
             circle2.style.height = '0px';
-            //setTimeout(() => {
+            setTimeout(() => {
               //window.location.href
-          //window.open(window.location.href + '2.html', '_blank');
-         	//}, 2000);
+          window.open(window.location.href + 'blue.html', '_blank');
+          window.open(window.location.href + 'green.html', '_blank');
+          window.open(window.location.href + 'red.html', '_blank');
+	    }, 2100);
           }, 8000);
           
           thirdGoal = true;
