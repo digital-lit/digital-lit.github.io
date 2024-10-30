@@ -77,7 +77,7 @@
             secondGoal = true;
             return;
         } else if (!thirdGoal){
-		instructions.innerHTML = 'Thank you!<br><br>Now double click the circle';
+		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
 		draggableCircle.style.cursor = 'pointer';
