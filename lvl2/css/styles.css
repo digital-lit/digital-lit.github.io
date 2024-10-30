@@ -80,6 +80,7 @@
     width: 100px;
     height: 100px;
     background-color: blue;
+    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
