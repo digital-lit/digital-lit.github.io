@@ -81,46 +81,17 @@
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
 		draggableCircle.style.cursor = 'pointer';
-	/*
-          var greenRect = draggableCircle.getBoundingClientRect();
-          var greenLeft = greenRect.left.toFixed();
-          var greenTop = greenRect.top.toFixed();
 
-          circle1.style.left = greenLeft + "px";
-          circle1.style.top = greenTop + "px";
-          circle2.style.left = greenLeft + "px";
-          circle2.style.top = greenTop + "px";
-          
-          
-          setTimeout(() => {
-          	circle1.style.display = 'inline';
-            circle2.style.display = 'inline';
-          	setTimeout(() => {
-              circle1.style.left = greenLeft/2 + "px";
-              circle2.style.left = greenLeft*1.5 + "px";
-          	}, 1000);
-          }, 2000);*/
           document.getElementById('draggableCircle').addEventListener('dblclick', function(){
-          setTimeout(() => {
             draggableCircle.style.transition = 'all 2s ease';
             draggableCircle.style.top = '0%';
             draggableCircle.style.left = '30%';
             draggableCircle.style.width = '0px';
             draggableCircle.style.height = '0px';
-            
-            /*circle1.style.top = '0%';
-            circle1.style.left = '40%';
-            circle1.style.width = '0px';
-            circle1.style.height = '0px';
-            
-            circle2.style.top = '0%';
-            circle2.style.left = '20%';
-            circle2.style.width = '0px';
-            circle2.style.height = '0px';*/
+
             setTimeout(() => {
           	window.open(window.location.href + 'blue.html', '_blank');
 	    }, 2000);
-          }, 2000);
         }, false);
           thirdGoal = true;
         }
