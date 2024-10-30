@@ -100,7 +100,7 @@
               circle2.style.left = greenLeft*1.5 + "px";
           	}, 1000);
           }, 2000);*/
-          
+          document.getElementById('draggableCircle').addEventListener('dblclick', function(){
           setTimeout(() => {
             draggableCircle.style.transition = 'all 2s ease';
             draggableCircle.style.top = '0%';
@@ -117,7 +117,6 @@
             circle2.style.left = '20%';
             circle2.style.width = '0px';
             circle2.style.height = '0px';*/
-	document.getElementById('draggableCircle').addEventListener('dblclick', function(){
             setTimeout(() => {
           	window.open(window.location.href + 'blue.html', '_blank');
 	    }, 2000);
