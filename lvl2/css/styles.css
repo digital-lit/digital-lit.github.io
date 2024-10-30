@@ -90,5 +90,7 @@
 #circleLabel{
     text-align: center;
     margin: 50px;
+    position: absolute;
+    width: 100%;
     top: 0;
 }
