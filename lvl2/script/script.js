@@ -77,7 +77,7 @@
             secondGoal = true;
             return;
         } else if (!thirdGoal){
-		instructions.textContent = 'Thank you!';
+		instructions.textContent = 'Thank you!<br><br>Now double click the circle';
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
 		draggableCircle.style.cursor = 'pointer';
