@@ -119,9 +119,9 @@
             setTimeout(() => {
               //window.location.href
           window.open(window.location.href + 'blue.html', '_blank');
-          window.open(window.location.href + 'green.html', '_blank');
-          window.open(window.location.href + 'red.html', '_blank');
-          window.open(window.location.href + 'instructions.html', '_blank');
+          //window.open(window.location.href + 'green.html', '_blank');
+          //window.open(window.location.href + 'red.html', '_blank');
+          //window.open(window.location.href + 'instructions.html', '_blank');
 	    }, 2100);
           }, 8000);
           
