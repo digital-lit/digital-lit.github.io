@@ -76,7 +76,10 @@
             }, 2000);
             secondGoal = true;
             return;
-        } else if (!thirdGoal){
+        } else {
+		instructions.innerHTML = 'Well done!';
+	}
+	      /*else if (!thirdGoal){
 		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
@@ -94,7 +97,7 @@
 	    }, 2000);
         }, false);
           thirdGoal = true;
-        }
+        }*/
       
        
       }
