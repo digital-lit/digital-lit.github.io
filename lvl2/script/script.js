@@ -77,7 +77,7 @@
             secondGoal = true;
             return;
         } else {
-		instructions.innerHTML = 'Well done!';
+		instructions.innerHTML = 'Well done! 🎉';
 	}
 	      /*else if (!thirdGoal){
 		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
