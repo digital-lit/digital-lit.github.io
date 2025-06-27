@@ -52,7 +52,7 @@
           setTimeout(() => {
   				draggableCircle.style.transition = '2s';
   				draggableCircle.style.left = '50px';
-  				instructions.innerHTML = 'Oh no!<br><br>Drag the circle to the center again';
+  				instructions.innerHTML = 'Oh no,<br><br>again!';
 
   				// Wait for the 2s transition to finish, then force reset to 0s with a tiny delay
   				setTimeout(() => {
@@ -67,7 +67,7 @@
             	draggableCircle.style.transition = '2s';
             	draggableCircle.style.left = '70%';
               draggableCircle.style.top = '60%';
-            	instructions.innerHTML = 'What?!<br><br>Drag the circle to the center again, please';
+            	instructions.innerHTML = 'What??<br><br>Again!';
 
             // Wait for the 2s transition to finish, then force reset to 0s with a tiny delay
             setTimeout(() => {
