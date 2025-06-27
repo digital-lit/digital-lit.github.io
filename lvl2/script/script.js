@@ -76,6 +76,24 @@
             }, 2000);
             secondGoal = true;
             return;
+        } else if (!thirdGoal){
+		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
+		dropZone.style.transition = '3s';
+		dropZone.style.opacity = '0';
+		draggableCircle.style.cursor = 'pointer';
+
+          document.getElementById('draggableCircle').addEventListener('dblclick', function(){
+            draggableCircle.style.transition = 'all 2s ease';
+            draggableCircle.style.top = '0%';
+            draggableCircle.style.left = '30%';
+            draggableCircle.style.width = '0px';
+            draggableCircle.style.height = '0px';
+
+            setTimeout(() => {
+          	window.open(window.location.href + 'blue.html', '_blank');
+	    }, 2000);
+        }, false);
+          thirdGoal = true;
         } else {
 		instructions.innerHTML = 'Well done! 🎉';
 	}
