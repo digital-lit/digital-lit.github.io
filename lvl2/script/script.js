@@ -110,9 +110,9 @@
             draggableCircle.style.width = '0px';
             draggableCircle.style.height = '0px';
 
-            setTimeout(() => {
+            /*setTimeout(() => {
           	window.open(window.location.href + 'blue.html', '_blank');
-	    }, 2000);
+	    }, 2000);*/
         }, false);
           thirdGoal = true;
         }
