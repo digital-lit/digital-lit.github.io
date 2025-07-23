@@ -97,7 +97,7 @@
         } else {
 		instructions.innerHTML = 'Well done! 🎉';
 	}
-	      else if (!thirdGoal){
+	      /*else if (!thirdGoal){
 		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
@@ -110,12 +110,12 @@
             draggableCircle.style.width = '0px';
             draggableCircle.style.height = '0px';
 
-            /*setTimeout(() => {
+            setTimeout(() => {
           	window.open(window.location.href + 'blue.html', '_blank');
-	    }, 2000);*/
+	    }, 2000);
         }, false);
           thirdGoal = true;
-        }
+        }*/
       
        
       }
