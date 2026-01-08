@@ -94,10 +94,7 @@
 	    }, 2000);*/
         }, false);
           thirdGoal = true;
-        } else {
-		instructions.innerHTML = 'Well done! 🎉';
-	}
-	      /*else if (!thirdGoal){
+        } else if (!thirdGoal){
 		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
 		dropZone.style.transition = '3s';
 		dropZone.style.opacity = '0';
@@ -115,7 +112,7 @@
 	    }, 2000);
         }, false);
           thirdGoal = true;
-        }*/
+        }
       
        
       }
