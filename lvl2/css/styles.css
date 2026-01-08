@@ -40,7 +40,7 @@
     }
 
     /* Draggable circle styling */
-    #draggableCircle {
+    #draggableCircle1 {
       width: 100px;
       height: 100px;
       background-color: green;
@@ -51,6 +51,28 @@
       cursor: grab;
       z-index: 100;
     }
+    #draggableCircle2 {
+          width: 100px;
+          height: 100px;
+          background-color: green;
+          border-radius: 50%;
+          position: absolute;
+          top: 70%;
+          left: 20%;
+          cursor: grab;
+          z-index: 100;
+        }
+    #draggableCircle3 {
+          width: 100px;
+          height: 100px;
+          background-color: green;
+          border-radius: 50%;
+          position: absolute;
+          top: 70%;
+          left: 20%;
+          cursor: grab;
+          z-index: 100;
+        }
     
   #circle1{
     width: 100px;
