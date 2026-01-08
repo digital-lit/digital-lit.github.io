@@ -100,7 +100,7 @@ document.addEventListener('mouseup', () => {
           'https://digital-lit.github.io/lvl2/blue.html',
           '_blank'
         );
-        if (newTab) newTab.focus();
+        //if (newTab) newTab.focus();
       }
     }
   } finally {
