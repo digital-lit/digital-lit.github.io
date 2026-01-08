@@ -85,28 +85,41 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Drop
+function endDrag() {
+  if (!activeCircle) return;
+  activeCircle.style.cursor = 'grab';
+  activeCircle = null;
+}
+
 document.addEventListener('mouseup', () => {
   if (!activeCircle) return;
 
-  activeCircle.style.cursor = 'grab';
+  try {
+    if (isFullyInside(activeCircle, dropZone)) {
+      snapToCenter(activeCircle, dropZone);
+      placed.add(activeCircle.id);
+      activeCircle.style.cursor = 'default';
 
-  if (isFullyInside(activeCircle, dropZone)) {
-    snapToCenter(activeCircle, dropZone);
+      const remaining = 3 - placed.size;
+      if (remaining > 0) {
+        instructions.textContent = `Nice! ${remaining} more to go.`;
+      } else {
+        instructions.textContent = 'Awesome! You dragged all 3 circles into the center!';
 
-    // Mark placed
-    placed.add(activeCircle.id);
-
-    // Optionally "lock" it visually/behaviorally
-    activeCircle.style.cursor = 'default';
-
-    const remaining = 3 - placed.size;
-    if (remaining > 0) {
-      instructions.textContent = `Nice! ${remaining} more to go.`;
-    } else {
-      instructions.textContent = 'Awesome! You dragged all 3 circles into the center!';
-      window.open(url, 'https://digital-lit.github.io/lvl2/blue.html').focus();
+        const newTab = window.open('https://digital-lit.github.io/lvl2/blue.html', '_blank');
+        if (newTab) newTab.focus();
+        // If newTab is null, popup was blocked.
+      }
     }
+  } finally {
+    endDrag(); // ALWAYS release the drag state
   }
+});
+
+// Extra safety: end drag if mouse leaves window or window loses focus
+window.addEventListener('blur', endDrag);
+document.addEventListener('mouseleave', endDrag);
+
 
   activeCircle = null;
 });
