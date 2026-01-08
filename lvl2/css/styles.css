@@ -54,7 +54,7 @@
     #draggableCircle2 {
           width: 100px;
           height: 100px;
-          background-color: green;
+          background-color: blue;
           border-radius: 50%;
           position: absolute;
           top: 70%;
@@ -65,7 +65,7 @@
     #draggableCircle3 {
           width: 100px;
           height: 100px;
-          background-color: green;
+          background-color: red;
           border-radius: 50%;
           position: absolute;
           top: 70%;
