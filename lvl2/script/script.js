@@ -1,120 +1,111 @@
-    const draggableCircle = document.getElementById('draggableCircle');
-    const dropZone = document.getElementById('dropZone');
-    const instructions = document.getElementById('instructions');
-    const circle1 = document.getElementById('circle1');
-    const circle2 = document.getElementById('circle2');
+const dropZone = document.getElementById('dropZone');
+const instructions = document.getElementById('instructions');
 
-    let isDragging = false;
-    let offsetX, offsetY;
-    let firstGoal = false;
-    let secondGoal = false;
-    let thirdGoal = false;
+const circles = [
+  document.getElementById('draggableCircle1'),
+  document.getElementById('draggableCircle2'),
+  document.getElementById('draggableCircle3'),
+];
 
-    // Mouse down event to start dragging
-    draggableCircle.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = e.offsetX;
-      offsetY = e.offsetY;
-      draggableCircle.style.cursor = 'grabbing';
-    });
+// Track which circles are completed
+const placed = new Set();
 
-    // Mouse move event to drag the circle
-    document.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        draggableCircle.style.left = `${e.clientX - offsetX}px`;
-        draggableCircle.style.top = `${e.clientY - offsetY}px`;
-      }
-    });
+// Drag state
+let activeCircle = null;
+let offsetX = 0;
+let offsetY = 0;
 
-    // Mouse up event to stop dragging and check drop location
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      draggableCircle.style.cursor = 'grab';
+// Optional: make sure circles are absolutely positioned
+circles.forEach((c) => {
+  c.style.position = 'absolute';
+  c.style.cursor = 'grab';
+});
 
-      // Check if the circle is in the drop zone
-      const circleRect = draggableCircle.getBoundingClientRect();
-      const dropZoneRect = dropZone.getBoundingClientRect();
+// Starting positions (spread out)
+function setStartPositions() {
+  // Use viewport-based positions so it scales with screen size
+  circles[0].style.left = '8%';   // lower left
+  circles[0].style.top  = '75%';
 
-      const isInDropZone =
-        circleRect.left >= dropZoneRect.left &&
-        circleRect.right <= dropZoneRect.right &&
-        circleRect.top >= dropZoneRect.top &&
-        circleRect.bottom <= dropZoneRect.bottom;
+  circles[1].style.left = '78%';  // upper right
+  circles[1].style.top  = '10%';
 
-      // Update instructions if the circle is correctly placed
-      if (isInDropZone) {
-        //instructions.textContent = 'Good job!';
-        draggableCircle.style.left = `${dropZoneRect.left + dropZoneRect.width / 2 - circleRect.width / 2}px`;
-        draggableCircle.style.top = `${dropZoneRect.top + dropZoneRect.height / 2 - circleRect.height / 2}px`;
-        
-        if (!firstGoal){
-         	instructions.textContent = 'Good job!';
-          setTimeout(() => {
-  				draggableCircle.style.transition = '2s';
-  				draggableCircle.style.left = '50px';
-  				instructions.innerHTML = 'Oh no,<br><br>again!';
+  circles[2].style.left = '78%';  // lower right
+  circles[2].style.top  = '75%';
+}
 
-  				// Wait for the 2s transition to finish, then force reset to 0s with a tiny delay
-  				setTimeout(() => {
-    					draggableCircle.style.transition = '0s';
-  					}, 2100); // Slightly longer than the 2s transition to ensure it’s fully completed
-					}, 2000);
-					firstGoal = true;
-          return;
-        } else if (!secondGoal){
-        		instructions.textContent = 'Perfect!';
-            setTimeout(() => {
-            	draggableCircle.style.transition = '2s';
-            	draggableCircle.style.left = '70%';
-              draggableCircle.style.top = '60%';
-            	instructions.innerHTML = 'What??<br><br>Again!';
+setStartPositions();
 
-            // Wait for the 2s transition to finish, then force reset to 0s with a tiny delay
-            setTimeout(() => {
-                draggableCircle.style.transition = '0s';
-              }, 2100); // Slightly longer than the 2s transition to ensure it’s fully completed
-            }, 2000);
-            secondGoal = true;
-            return;
-        } else if (!thirdGoal){
-		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
-		dropZone.style.transition = '3s';
-		dropZone.style.opacity = '0';
-		draggableCircle.style.cursor = 'pointer';
+// Helper: check if a circle is fully inside drop zone
+function isFullyInside(circleEl, zoneEl) {
+  const circleRect = circleEl.getBoundingClientRect();
+  const zoneRect = zoneEl.getBoundingClientRect();
 
-          document.getElementById('draggableCircle').addEventListener('dblclick', function(){
-            draggableCircle.style.transition = 'all 2s ease';
-            draggableCircle.style.top = '0%';
-            draggableCircle.style.left = '30%';
-            draggableCircle.style.width = '0px';
-            draggableCircle.style.height = '0px';
+  return (
+    circleRect.left >= zoneRect.left &&
+    circleRect.right <= zoneRect.right &&
+    circleRect.top >= zoneRect.top &&
+    circleRect.bottom <= zoneRect.bottom
+  );
+}
 
-            /*setTimeout(() => {
-          	window.open(window.location.href + 'blue.html', '_blank');
-	    }, 2000);*/
-        }, false);
-          thirdGoal = true;
-        } else if (!thirdGoal){
-		instructions.innerHTML = 'Thank you!<br><br>Now <u>double click</u> the circle';
-		dropZone.style.transition = '3s';
-		dropZone.style.opacity = '0';
-		draggableCircle.style.cursor = 'pointer';
+// Helper: snap to center of drop zone
+function snapToCenter(circleEl, zoneEl) {
+  const circleRect = circleEl.getBoundingClientRect();
+  const zoneRect = zoneEl.getBoundingClientRect();
 
-          document.getElementById('draggableCircle').addEventListener('dblclick', function(){
-            draggableCircle.style.transition = 'all 2s ease';
-            draggableCircle.style.top = '0%';
-            draggableCircle.style.left = '30%';
-            draggableCircle.style.width = '0px';
-            draggableCircle.style.height = '0px';
+  // set left/top in viewport coords
+  circleEl.style.left = `${zoneRect.left + zoneRect.width / 2 - circleRect.width / 2}px`;
+  circleEl.style.top = `${zoneRect.top + zoneRect.height / 2 - circleRect.height / 2}px`;
+}
 
-            setTimeout(() => {
-          	window.open(window.location.href + 'blue.html', '_blank');
-	    }, 2000);
-        }, false);
-          thirdGoal = true;
-        }
-      
-       
-      }
-    });
- 
+// Attach mousedown to each circle
+circles.forEach((circle) => {
+  circle.addEventListener('mousedown', (e) => {
+    // If already placed, don't let it move again (optional)
+    if (placed.has(circle.id)) return;
+
+    activeCircle = circle;
+
+    // Offset within the element where mouse grabbed it
+    const rect = circle.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    circle.style.cursor = 'grabbing';
+  });
+});
+
+// Drag move
+document.addEventListener('mousemove', (e) => {
+  if (!activeCircle) return;
+
+  activeCircle.style.left = `${e.clientX - offsetX}px`;
+  activeCircle.style.top = `${e.clientY - offsetY}px`;
+});
+
+// Drop
+document.addEventListener('mouseup', () => {
+  if (!activeCircle) return;
+
+  activeCircle.style.cursor = 'grab';
+
+  if (isFullyInside(activeCircle, dropZone)) {
+    snapToCenter(activeCircle, dropZone);
+
+    // Mark placed
+    placed.add(activeCircle.id);
+
+    // Optionally "lock" it visually/behaviorally
+    activeCircle.style.cursor = 'default';
+
+    const remaining = 3 - placed.size;
+    if (remaining > 0) {
+      instructions.textContent = `Nice! ${remaining} more to go.`;
+    } else {
+      instructions.textContent = 'Awesome! You dragged all 3 circles into the center!';
+    }
+  }
+
+  activeCircle = null;
+});
