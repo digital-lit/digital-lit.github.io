@@ -104,6 +104,7 @@ document.addEventListener('mouseup', () => {
       instructions.textContent = `Nice! ${remaining} more to go.`;
     } else {
       instructions.textContent = 'Awesome! You dragged all 3 circles into the center!';
+      window.open(url, 'https://digital-lit.github.io/lvl2/blue.html').focus();
     }
   }
 
